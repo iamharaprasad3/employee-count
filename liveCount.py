@@ -7,7 +7,8 @@ from datetime import datetime
 from streamlit_autorefresh import st_autorefresh
 import toml
 
-config = toml.load('secret.toml')
+# config = toml.load('secret.toml')
+config = st.secrets
 
 # ---------- CONFIG ----------
 st.set_page_config(page_title="Addverb Live Emp Count", layout="wide", page_icon="https://addverb.com/wp-content/themes/onepress-child/assets/images/favicon.ico")
