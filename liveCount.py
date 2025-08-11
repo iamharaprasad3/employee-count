@@ -3,6 +3,9 @@ import requests
 import base64
 import time
 import regex as re
+from datetime import datetime
+from streamlit_autorefresh import st_autorefresh
+
 
 
 # ---------- CONFIG ----------
@@ -13,7 +16,18 @@ def get_count_by_device_prefix():
     username = "addverbapi"
     password = "addverbapi"
 
-    count_api = "https://addverbacs.matrixvyom.com/api.svc/v2/event-ta?action=get;date-range=11082025000000-11082025235959;field-name=userid,edate,device_name,etime,entryexittype"
+    today_str = datetime.now().strftime("%d%m%Y")
+
+    # Create start and end timestamps for the whole day
+    start_time = today_str + "000000"
+    end_time = today_str + "235959"
+
+    # Insert into URL
+    # count_api = f"https://acs.matrix.com/api.svc/v2/event-ta?action=get;date-range={start_time}-{end_time};field-name=userid,edate,device_name,etime,entryexittype"
+    count_api = f"https://addverbacs.matrixvyom.com/api.svc/v2/event-ta?action=get;date-range={start_time}-{end_time};field-name=userid,edate,device_name,etime,entryexittype"
+
+    print(count_api)
+    # count_api = "https://addverbacs.matrixvyom.com/api.svc/v2/event-ta?action=get;date-range=11082025000000-11082025235959;field-name=userid,edate,device_name,etime,entryexittype"
 
     auth_string = f"{username}:{password}"
     base64_auth = base64.b64encode(auth_string.encode()).decode()
@@ -21,6 +35,7 @@ def get_count_by_device_prefix():
 
     response = requests.get(count_api, headers=headers, timeout=10)
     raw_res = response.text
+    print(raw_res)
     return parse_and_count_by_device_prefix(raw_res)
 
 # ---------- PARSER ----------
@@ -78,28 +93,6 @@ def parse_and_count_by_device_prefix(raw_text):
     return location_counts
 
 
-# ---------- STREAMLIT UI ----------
-# st.title("📊 Employee Count Dashboard")
-
-
-# Auto refresh every 10 seconds
-# st_autorefresh = st.experimental_rerun
-# st_autorefresh = st.experimental_rerun
-# st_autorefresh = st_autorefresh
-
-# st_autorefresh = st.experimental_rerun
-
-# # This is the correct one:
-# st_autorefresh_interval = st.experimental_rerun
-
-# # Actually, we use:
-# st_autorefresh = st.experimental_rerun  # placeholder for code reference
-
-
-# # Real refresh logic
-# st_autorefresh = st.autorefresh(interval=10 * 1000, key="refresh")
-
-# Fetch data
 try:
     counts = get_count_by_device_prefix()
 except Exception as e:
@@ -130,47 +123,10 @@ cards = [
     # {"title": "Pune", "count": pune_total, "img": "https://cdn-icons-png.flaticon.com/512/684/684908.png"},
 ]
 
-# Display 4 horizontal cards
-# cols = st.columns(4)
-# for col, card in zip(cols, cards):
-#     with col:
-#         st.markdown(
-#             f"""
-#             <div style="display: flex; align-items: center; background: white; padding: 15px; border-radius: 12px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
-#                 <img src="{card['img']}" width="50" style="margin-right: 15px;">
-#                 <div>
-#                     <h3 style="margin:0;">{card['title']}</h3>
-#                     <p style="font-size: 20px; font-weight: bold; margin:0;">{card['count']}</p>
-#                 </div>
-#             </div>
-#             """,
-#             unsafe_allow_html=True
-#         )
 
-# cols = st.columns(2)
-# for col, card in zip(cols, cards):
-#     with col:
-#         st.markdown(
-#             f"""
-#             <div style="
-#                 display: flex;
-#                 flex-direction: column;
-#                 align-items: center;
-#                 background: white;
-#                 padding: 15px;
-#                 border-radius: 12px;
-#                 box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-#                 text-align: center;
-#             ">
-#                 <img src="{card['img']}" style="width:100%; height:150px; object-fit:cover; border-radius: 8px;">
-#                 <div style="margin-top: 10px;">
-#                     <p style="color: #888; font-size: 12px; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">{card['title']}</p>
-#                     <p style="font-size: 28px; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{card['count']}</p>
-#                 </div>
-#             </div>
-#             """,
-#             unsafe_allow_html=True
-#         )
+
+st_autorefresh(interval=5000)
+
 
 st.markdown(
     f"""
@@ -239,16 +195,16 @@ st.markdown(
                 <img src="{cards[1]['img']}" style="width:50%; height:30vh; object-fit:cover; border-radius: 8px;">
                 <div style="width:40%;">
                     <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; margin-bottom:3vh" >
-                        <p style="color: #343434; font-weight:bold; font-size: 1.2vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Valley Total</p>
+                        <p style="color: #343434; font-weight:bold; font-size: 1.2vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Verse Total</p>
                         <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_total}</p>
                     </div>
                     <div style="display:flex; flex-direction:row; justify-content:space-evenly; align-items:center;" >
                         <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;" >
-                            <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Valley <br> Employees</p>
+                            <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Verse <br> Employees</p>
                             <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_emp}</p>
                         </div>
                         <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;" >
-                            <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Valley <br> Contractual</p>
+                            <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Verse <br> Contractual</p>
                             <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_contractual}</p>
                         </div>  
                     </div>
