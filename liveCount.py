@@ -5,28 +5,26 @@ import time
 import regex as re
 from datetime import datetime
 from streamlit_autorefresh import st_autorefresh
+import toml
 
-
+config = toml.load('secret.toml')
 
 # ---------- CONFIG ----------
 st.set_page_config(page_title="Addverb Live Emp Count", layout="wide", page_icon="https://addverb.com/wp-content/themes/onepress-child/assets/images/favicon.ico")
 
 # ---------- API CALL ----------
 def get_count_by_device_prefix():
-    username = "addverbapi"
-    password = "addverbapi"
+    
+    username = config["api"]["username"]
+    password = config["api"]["password"]
 
     today_str = datetime.now().strftime("%d%m%Y")
 
-    # Create start and end timestamps for the whole day
     start_time = today_str + "000000"
     end_time = today_str + "235959"
 
-    # Insert into URL
-    # count_api = f"https://acs.matrix.com/api.svc/v2/event-ta?action=get;date-range={start_time}-{end_time};field-name=userid,edate,device_name,etime,entryexittype"
     count_api = f"https://addverbacs.matrixvyom.com/api.svc/v2/event-ta?action=get;date-range={start_time}-{end_time};field-name=userid,edate,device_name,etime,entryexittype"
 
-    print(count_api)
     # count_api = "https://addverbacs.matrixvyom.com/api.svc/v2/event-ta?action=get;date-range=11082025000000-11082025235959;field-name=userid,edate,device_name,etime,entryexittype"
 
     auth_string = f"{username}:{password}"
@@ -35,7 +33,6 @@ def get_count_by_device_prefix():
 
     response = requests.get(count_api, headers=headers, timeout=10)
     raw_res = response.text
-    print(raw_res)
     return parse_and_count_by_device_prefix(raw_res)
 
 # ---------- PARSER ----------
