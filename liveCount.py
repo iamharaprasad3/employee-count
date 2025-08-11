@@ -128,7 +128,7 @@ st_autorefresh(interval=5000)
 
 st.markdown(
     f"""
-    <div style="width:100%; background:#ee3124;margin-top:-2%; margin-bottom:3%;display:flex; height:10vh;">
+    <div style="width:100%; background:#ee3124;margin-top:-4%; margin-bottom:3%;display:flex; height:10vh;">
         <img style="width:15vw; margin:auto; filter: brightness(0) invert(1);" src="https://addverb.com/wp-content/uploads/2024/07/Addverb-Logo-small.png">
     </div>
     """,
