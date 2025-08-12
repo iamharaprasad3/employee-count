@@ -135,6 +135,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
 st.markdown(
             f"""
             <div style="
@@ -151,8 +152,8 @@ st.markdown(
                 margin-bottom:3%;
                 justify-content:space-between;
             ">
-                <img src="{cards[0]['img']}" style="width:50%; height:30vh; object-fit:cover; border-radius: 8px;">
-                <div style="width:40%;">
+                <img src="{cards[0]['img']}" style="width:40%; height:30vh; object-fit:cover; border-radius: 8px;">
+                <div style="width:60%;">
                     <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; margin-bottom:3vh" >
                         <p style="color: #343434; font-weight:bold; font-size: 1.2vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Valley Total</p>
                         <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_valley_total}</p>
@@ -163,8 +164,16 @@ st.markdown(
                             <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_valley_emp}</p>
                         </div>
                         <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;" >
+                            <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Valley <br> Apprentice</p>
+                            <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_valley_app}</p>
+                        </div>  
+                        <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;" >
+                            <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Valley <br> Admin</p>
+                            <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_valley_ad}</p>
+                        </div>  
+                        <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;" >
                             <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Valley <br> Contractual</p>
-                            <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_valley_contractual}</p>
+                            <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_valley_cn}</p>
                         </div>  
                     </div>
                 </div>
@@ -190,8 +199,8 @@ st.markdown(
                 margin-bottom:3%;
                 justify-content:space-between;
             ">
-                <img src="{cards[1]['img']}" style="width:50%; height:30vh; object-fit:cover; border-radius: 8px;">
-                <div style="width:40%;">
+                <img src="{cards[1]['img']}" style="width:40%; height:30vh; object-fit:cover; border-radius: 8px;">
+                <div style="width:60%;">
                     <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; margin-bottom:3vh" >
                         <p style="color: #343434; font-weight:bold; font-size: 1.2vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Verse Total</p>
                         <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_total}</p>
@@ -202,9 +211,17 @@ st.markdown(
                             <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_emp}</p>
                         </div>
                         <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;" >
+                            <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Verse <br> Apprentice</p>
+                            <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_app}</p>
+                        </div> 
+                        <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;" >
+                            <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Verse <br> Admin</p>
+                            <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_ad}</p>
+                        </div>
+                        <div style="display:flex; flex-direction:column; justify-content:center; align-items:center;" >
                             <p style="color: #343434;font-weight:650; line-height:1vw; font-size: 1vw; margin:0; text-transform: uppercase; letter-spacing: 0.5px;">Bot Verse <br> Contractual</p>
-                            <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_contractual}</p>
-                        </div>  
+                            <p style="font-size: 2vw; font-weight: bold; color: #ee3124; margin:5px 0 0 0;">{bot_verse_cn}</p>
+                        </div>   
                     </div>
                 </div>
             </div>
