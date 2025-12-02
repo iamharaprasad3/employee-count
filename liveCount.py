@@ -316,8 +316,8 @@ st.markdown(
                         </tr>
                         <tr>
                             <td style="color:#343434; border:1px solid black;font-weight:bold;" >Emergency Response Team</td>
-                            <td style="color:#343434; border:1px solid black;" >Vikas Bhatia</td>
-                            <td style="color:#343434; border:1px solid black;" >9990592442</td>
+                            <td style="color:#343434; border:1px solid black;" >-</td>
+                            <td style="color:#343434; border:1px solid black;" >-</td>
                             <td style="color:#343434; border:1px solid black;font-weight:bold;" > {st.session_state.verseERT} </td>
                         </tr>
                     </table>
