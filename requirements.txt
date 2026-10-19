@@ -2,3 +2,4 @@ streamlit
 regex
 streamlit_autorefresh
 datetime
+toml
