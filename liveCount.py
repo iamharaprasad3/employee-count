@@ -113,7 +113,7 @@ def parse_and_count_by_device_prefix(raw_text):
                     st.session_state.valleyERT = False 
 
         if device_name.startswith("Bot Verse"):
-            if user_id == '1999':
+            if user_id == '3117':
                 if entry_exit_type == '0':
                     st.session_state.verseCC = True
                 else:
