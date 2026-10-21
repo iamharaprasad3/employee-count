@@ -241,8 +241,8 @@ st.markdown(
                         </tr>
                         <tr>
                             <td style="color:#343434; border:1px solid black;font-weight:bold;" >Emergency Response Team</td>
-                            <td style="color:#343434; border:1px solid black;" >Shubham Tyagi</td>
-                            <td style="color:#343434; border:1px solid black;" >8448392615</td>
+                            <td style="color:#343434; border:1px solid black;" >-</td>
+                            <td style="color:#343434; border:1px solid black;" >-</td>
                             <td style="color:#343434; border:1px solid black;font-weight:bold;" > {st.session_state.valleyERT} </td>
                         </tr>
                     </table>
@@ -304,8 +304,8 @@ st.markdown(
                         </tr>
                         <tr>
                             <td style="color:#343434; border:1px solid black; font-weight:bold;" >Communication Coordinator</td>
-                            <td style="color:#343434; border:1px solid black;" >Nirbhay Kumar</td>
-                            <td style="color:#343434; border:1px solid black;" >8273943670</td>
+                            <td style="color:#343434; border:1px solid black;" >Ritik Kumar</td>
+                            <td style="color:#343434; border:1px solid black;" >7292004145</td>
                             <td style="color:#343434; border:1px solid black;font-weight:bold;" >{st.session_state.verseCC}</td>
                         </tr>
                         <tr>
